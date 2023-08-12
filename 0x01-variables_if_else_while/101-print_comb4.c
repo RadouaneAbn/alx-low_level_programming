@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	int n1, n2, n3, T = 0;
+	int n1, n2, n3;
 
 	n1 = 0;
 	while (n1 <= 9)
@@ -23,9 +23,8 @@ int main(void)
 				putchar(n1 + 48);
 				putchar(n2 + 48);
 				putchar(n3 + 48);
-				T++;
 
-					if (T != 126)
+					if (n1 + n2 + n3 != 24)
 					{
 						putchar(',');
 						putchar(' ');
