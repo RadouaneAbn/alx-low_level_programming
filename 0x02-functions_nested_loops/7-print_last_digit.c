@@ -5,14 +5,17 @@
  *
  * @n: the input number
  *
- * Return:
+ * Return: return the n the last digit of the input number
  */
 
 int print_last_digit(int n)
 {
+	int abs_n, last_digit;
+
 	if (n < 0)
-		n = -n;
-	n = n % 10;
-	_putchar(n + '0');
-	return (n);
+		abs_n = -n;
+
+	last_digit = abs_n % 10;
+	_putchar(last_digit + '0');
+	return (last_digit);
 }
