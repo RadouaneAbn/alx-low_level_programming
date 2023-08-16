@@ -2,6 +2,9 @@
 
 /**
  * print_times_table - print the n times table starting with 0
+ *
+ * @n: number of times table
+ *
  * Return: always return void
  */
 
