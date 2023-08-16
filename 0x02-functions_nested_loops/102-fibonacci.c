@@ -15,7 +15,7 @@ int main(void)
 	{
 		n[count] = n[count - 1] + n[count - 2];
 		printf("%ld", n[count]);
-		if (count != 50)
+		if (count < 50)
 			printf(", ");
 	count++;
 	}
