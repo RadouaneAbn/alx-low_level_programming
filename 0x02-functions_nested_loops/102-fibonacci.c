@@ -11,7 +11,7 @@ int main(void)
 	int count = 2;
 
 	printf("%ld, %ld, ", n[0], n[1]);
-	while (count <= 50)
+	while (count < 50)
 	{
 		n[count] = n[count - 1] + n[count - 2];
 		printf("%ld", n[count]);
