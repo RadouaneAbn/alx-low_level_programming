@@ -10,47 +10,34 @@
 
 void print_times_table(int n)
 {
-	int a = 0, b ,axb;
+	int a, b ,axb;
 
 	if (n < 0 || n > 15)
 		return;
-
-	while (a <= n)
+	for (a = 0; a <= n; a++)
 	{
-		b = 0;
-		while (b <= n)
+		_putchar('0');
+		for (b = 1; b <= n; b++)
 		{
+			_putchar(',');
+			_putchar(' ');
 			axb = a * b;
 
-			if (b == 0)
-				_putchar(axb + '0');
-			else if (axb < 100 && axb >= 10)
+			if (axb < 10)
+				_putchar(' ');
+			if (axb < 100)
+				_putchar(' ');
+
+			if (axb >= 100)
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(axb / 10 + '0');
-				_putchar(axb % 10 + '0');
-			}
-			else if (axb < 10)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(axb + '0');
-			}
-			else
-			{
-				_putchar(',');
-				_putchar(' ');
 				_putchar(axb / 100 + '0');
 				_putchar((axb / 10) % 10 + '0');
-				_putchar(axb % 10 + '0');
 			}
-		b++;
+			else if (axb < 100 && axb >=10)
+				_putchar(axb / 10 + '0');
+			_putchar((axb % 10) + '0');
+			
 		}
-	_putchar('\n');
-	a++;
+		_putchar('\n');
 	}
 }
