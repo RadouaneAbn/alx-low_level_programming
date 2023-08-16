@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	int n[3] = {1, 2, 3}, sum = 0;
+	int n[3] = {1, 2, 3}, sum = 2;
 
 	while (n[2] < 4000000)
 	{
