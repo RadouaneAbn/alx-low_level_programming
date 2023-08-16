@@ -15,6 +15,6 @@ int main(void)
 			T = T + n;
 	n++;
 	}
-	printf("the Sum of all multiplies of 3 or 5 is: %d\n", T);
+	printf("%d\n", T);
 	return (0);
 }
