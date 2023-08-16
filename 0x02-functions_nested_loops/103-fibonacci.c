@@ -18,6 +18,6 @@ int main(void)
 
 		n[0] = n[1], n[1] = n[2];
 	}
-	printf("The sum of even-valued terms bellow 4M is: %d\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
