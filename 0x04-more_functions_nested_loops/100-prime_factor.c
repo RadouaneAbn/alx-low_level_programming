@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - print the largest prime factor of the number 612852475143
- * Retune: always return 0
+ * main - print the largest prime factor of a number
+ * Return: always return 0
  */
 
 int main(void)
 {
-	unsigned long int n = 612852475143;
+	long int n = 612852475143;
 	int i = 2;
 
 	while (n != 1)
