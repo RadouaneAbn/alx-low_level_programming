@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - print numbers from 0 to 100, replacing multiplies of 3 with Fizz and 5 with Buzz and both with FizzBuzz
+ * main - print numbers from 0 to 100 using FizzBuzz
  * Return: always return 0
  */
 
@@ -19,7 +19,7 @@ int main(void)
 			printf("Buzz");
 		else
 			printf("%d", i);
-		if (i != 0 || i != 100)
+		if (i != 0 && i != 100)
 			printf(" ");
 	}
 	printf("\n");
