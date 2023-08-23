@@ -3,15 +3,16 @@
 /**
  * cap_string - this function will capitalize all words of a string
  * @s: the string
- * Return: return (s) the new string
+ * Return: return (s)
  */
 
 char *cap_string(char *s)
 {
 	int i = 1, j, C = 0;
-	char sep[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	char sep[13] = {' ', '\t', '\n', ',', ';'
+		, '.', '!', '?', '"', '(', ')', '{', '}'};
 
-	if (s[0] >= 'a' && s[0] <= 'z')\
+	if (s[0] >= 'a' && s[0] <= 'z')
 		s[0] -= 32;
 
 	while (s[i])
