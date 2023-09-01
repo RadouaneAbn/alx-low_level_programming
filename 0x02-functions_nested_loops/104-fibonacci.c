@@ -9,14 +9,16 @@ int print_plus(unsigned long int x);
 
 int main(void)
 {
-	unsigned long int n = 1, m = 2, m1, m2, t1, t2, tt1, tt2;
+	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2;
 	int i;
 
 	printf("%lu\n%lu\n", n, m);
 	for (i = 0; i < 90; i++)
 	{
-		n = m,m += n;
-		printf("%lu\n", m);
+		T = n + m;
+		printf("%lu\n", T);
+		if (i != 89)
+			n = m, m = T;
 	}
 
 		m1 = m / 1000000000;
