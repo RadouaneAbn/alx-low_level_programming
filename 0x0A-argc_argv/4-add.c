@@ -44,8 +44,11 @@ int main(int argc, char *argv[])
 	for (i = 1; argc != 0 && i < argc; i++)
 	{
 		num = _atoi(argv[i]);
-		if (num > 0)
-			sum += num;
+		if (num)
+		{
+			if (num > 0)
+				sum += num;
+		}
 		else
 		{
 			printf("Error\n");
