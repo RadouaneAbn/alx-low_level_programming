@@ -5,18 +5,16 @@
  * Return: always return 0
  */
 
-int print_plus(unsigned long int x);
-
 int main(void)
 {
 	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2;
 	int i;
 
-	printf("%lu\n%lu\n", n, m);
+	printf("%lu, %lu", n, m);
 	for (i = 0; i < 90; i++)
 	{
 		T = n + m;
-		printf("%lu\n", T);
+		printf(", %lu", T);
 		if (i != 89)
 			n = m, m = T;
 	}
@@ -30,13 +28,13 @@ int main(void)
 	{
 		tt2 = t2 + m2;
 		tt1 = t1 + m1 + t2 / 1000000000;
-		printf("%lu", tt1);
-		printf("%lu\n", tt2 % 1000000000);
+		printf(", %lu", tt1);
+		printf("%lu", tt2 % 1000000000);
 		m2 = t2;
 		m1 = t1;
 		t2 = tt2;
 		t1 = tt1;
 	}
-
+	printf("\n");
 	return (0);
 }
