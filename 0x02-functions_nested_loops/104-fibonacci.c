@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2;
+	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2, first, last;
 	int i;
 
 	printf("%lu, %lu", n, m);
@@ -28,8 +28,9 @@ int main(void)
 	{
 		tt2 = t2 + m2;
 		tt1 = t1 + m1 + t2 / 1000000000;
-		printf(", %lu", tt1);
-		printf("%lu", tt2 % 1000000000);
+		first = tt1;
+		last = tt2 % 1000000000;
+		printf(", %lu%lu", first, last);
 		m2 = t2;
 		m1 = t1;
 		t2 = tt2;
