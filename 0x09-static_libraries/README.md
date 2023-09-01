@@ -7,17 +7,17 @@ this a static library containing some of my previous functions.
 
 main.h:  
 this is a header file containing some of my previous functions prototypes.  
-> int _isupper(int c);  
-> char *_memset(char *s, char b, unsigned int n);  
-> int _atoi(char *s);  
+> * int _isupper(int c);  
+> * char *_memset(char *s, char b, unsigned int n);  
+> * int _atoi(char *s);  
 
 ============================================================================
 
 **Taks 1**
 create_static_lib.sh:  
 This a script that creates a static library called liball.a from all .c files
-> this script compile every .c file wiltout linking them  
-> that creates a object file .o  
-> and then it create the static library "liball.a"  
-> and finaly deletes all .o files  
+> * this script compile every .c file wiltout linking them  
+> * that creates a object file .o for each .c file in directory  
+> * and then it create the static library "liball.a"  
+> * and finaly deletes all .o files  
 
