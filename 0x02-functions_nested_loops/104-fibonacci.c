@@ -10,7 +10,7 @@ int main(void)
 	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2;
 	int i;
 
-	printf("%lu, %lu\n", n, m);
+	printf("%lu, %lu", n, m);
 	for (i = 0; i < 90; i++)
 	{
 		T = n + m;
