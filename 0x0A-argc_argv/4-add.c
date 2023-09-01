@@ -1,33 +1,6 @@
 #include <stdio.h>
-
-/**
- * _atoi - this function will convert a string to an integer
- * @s: the string
- * Return: the converted integer
- */
-
-int _atoi(char *s)
-{
-	int i = 0, end = 0, sign = 1;
-	unsigned int T = 0;
-
-	while (s[i] != '\0')
-	{
-		if (s[i] == '-')
-			sign *= -1;
-
-		while (s[i] >= '0' && s[i] <= '9')
-		{
-			end = 1;
-			T = T * 10 + s[i] - '0';
-			i++;
-		}
-		if (end == 1)
-			break;
-	i++;
-	}
-	return (T * sign);
-}
+#include <stdlib.h>
+#include <ctype.h>
 
 /**
  * main - entry point
@@ -39,21 +12,23 @@ int _atoi(char *s)
 
 int main(int argc, char *argv[])
 {
-	int num, i, sum = 0;
+	int num, i, j, sum = 0;
 
-	for (i = 1; argc != 0 && i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-		num = _atoi(argv[i]);
-		if (num)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (num > 0)
-				sum += num;
+			if (argv[i][0] == '-')
+				j++;
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		num = atoi(argv[i]);
+		if (num >= 0)
+			sum += num;
 	}
 	printf("%d\n", sum);
 	return (0);
