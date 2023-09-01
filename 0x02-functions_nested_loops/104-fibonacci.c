@@ -10,7 +10,7 @@ int main(void)
 	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2;
 	int i;
 
-	printf("%lu, %lu", n, m);
+	printf("%lu, %lu\n", n, m);
 	for (i = 0; i < 90; i++)
 	{
 		T = n + m;
@@ -24,7 +24,7 @@ int main(void)
 		t1 = T / 1000000000;
 		t2 = T % 1000000000;
 
-	for (i = 90; i < 96; i++)
+	for (i = 90; i < 95; i++)
 	{
 		tt2 = t2 + m2;
 		tt1 = t1 + m1 + t2 / 1000000000;
@@ -36,5 +36,6 @@ int main(void)
 		t1 = tt1;
 	}
 	printf("\n");
+
 	return (0);
 }
