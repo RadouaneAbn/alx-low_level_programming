@@ -51,6 +51,7 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 		Tl += _strlen(av[i]) + 1;
+	Tl++;
 
 	A = malloc(Tl);
 	if (A == NULL)
