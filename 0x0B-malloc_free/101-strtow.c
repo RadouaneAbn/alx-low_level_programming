@@ -9,15 +9,20 @@
 
 int word_count(char *s)
 {
-	int i, word = 0;
+	int flag, c, w;
 
-	for (i = 0; s[i] != '\0'; i++)
+	flag = w = 0;
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		if (s[i] == ' ' || s[i] == '\0')
-			word++;
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
 	}
-
-	return (word);
+	return (w);
 }
 
 /**
