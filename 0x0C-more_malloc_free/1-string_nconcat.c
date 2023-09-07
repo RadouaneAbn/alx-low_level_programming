@@ -31,7 +31,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (A == NULL)
 		return (NULL);
 
-	for (i = 0; s1[i]; i++, j++)
+	for (i = 0; i < sl1; i++, j++)
 		A[j] = s1[i];
 	for (i = 0; i < n; i++, j++)
 		A[j] = s2[i];
