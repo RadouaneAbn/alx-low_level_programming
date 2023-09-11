@@ -1,6 +1,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -20,6 +21,7 @@ struct dog
 	char *owner;
 };
 
+void print_dog(struct dog *d);
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
 #endif
