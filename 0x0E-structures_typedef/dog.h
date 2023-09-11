@@ -1,6 +1,8 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+#include <stdlib.h>
+
 /**
  * struct dog - this is a structure that contains information about a dog
  * @name: the name of the dog
@@ -17,5 +19,7 @@ struct dog
 	float age;
 	char *owner;
 };
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
 
 #endif
