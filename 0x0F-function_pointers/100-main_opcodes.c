@@ -32,7 +32,11 @@ int main(int argc, char *argv[])
 
 	A = (char *)&main;
 	for (i = 0; i < bytes; i++)
-		printf("%.2hhx ", A[i]);
+	{
+		printf("%.2hhx", A[i]);
+		if (i < bytes - 1)
+			printf(" ");
+	}
 	printf("\n");
 	return (0);
 }
