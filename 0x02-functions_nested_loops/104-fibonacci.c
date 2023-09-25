@@ -7,14 +7,14 @@
 
 int main(void)
 {
-	unsigned long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2, first, last;
+	long int n = 1, m = 2, T, m1, m2, t1, t2, tt1, tt2, first, last;
 	int i;
 
-	printf("%lu, %lu", n, m);
+	printf("%ld, %ld", n, m);
 	for (i = 0; i < 90; i++)
 	{
 		T = n + m;
-		printf(", %lu", T);
+		printf(", %ld", T);
 		if (i != 89)
 			n = m, m = T;
 	}
@@ -30,7 +30,7 @@ int main(void)
 		tt1 = t1 + m1 + t2 / 1000000000;
 		first = tt1;
 		last = tt2 % 1000000000;
-		printf(", %lu%lu", first, last);
+		printf(", %ld%ld", first, last);
 		m2 = t2;
 		m1 = t1;
 		t2 = tt2;
