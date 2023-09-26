@@ -29,5 +29,5 @@ size_t print_listint_safe(const listint_t *head)
 		nodes++;
 	}
 
-	return (0);
+	return (nodes);
 }
