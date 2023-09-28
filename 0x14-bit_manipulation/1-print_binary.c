@@ -7,10 +7,8 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int tmp;
+	unsigned long int tmp = n;
 	int i = 0;
-
-	tmp = n, i = 0;
 
 	if (n == 0)
 		_putchar('0');
@@ -22,8 +20,7 @@ void print_binary(unsigned long int n)
 	}
 	tmp = n;
 
-	i--;
-	while (i >= 0)
+	while (--i >= 0)
 	{
 		tmp = n;
 		tmp >>= i;
@@ -33,6 +30,5 @@ void print_binary(unsigned long int n)
 			_putchar(0 + '0');
 		tmp <<= i;
 		n -= tmp;
-		i--;
 	}
 }
