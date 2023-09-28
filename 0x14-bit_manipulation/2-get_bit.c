@@ -17,10 +17,10 @@ int get_bit(unsigned long int n, unsigned int index)
 	for (tmp = n; tmp; tmp >>= 1)
 		i++;
 
-	if (index > i)
+/**	if (index > i)
 		return (-1);
-
+*/
 	n = (n >> index) & 1UL;
 
-	return (n);
+	return ((int)n);
 }
