@@ -3,7 +3,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-void copy_file(const char *src, const char *dst);
+#define USAGE "Usage: cp file_from file_to\n"
+#define ERR_READ "Error: Can't read from file %s\n"
+#define ERR_WRITE "Error: Can't write to %s\n"
+#define ERR_CLOSE "Error: Can't close fd %d\n"
+#define RWRWR (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+#define BUFFER_size 1024
 
 /**
  * main - entry point
@@ -15,65 +20,35 @@ void copy_file(const char *src, const char *dst);
 
 int main(int argc, char **argv)
 {
+	char *src, *dst, BUF[BUFFER_size];
+	int fdsrc, fddst;
+	ssize_t rd;
+
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		dprintf(STDERR_FILENO, USAGE), exit(97);
 
-	copy_file(argv[1], argv[2]);
-	return (0);
-}
-
-/**
- * copy_file - this function copies the content of file to another file
- * @src: the source file
- * @dst: the destination file
- */
-
-void copy_file(const char *src, const char *dst)
-{
-	int fdsrc, fddst, cl;
-	ssize_t rd, bytes_written;
-	char BUF[1024];
+	src = argv[1], dst = argv[2];
 
 	fdsrc = open(src, O_RDONLY);
 	if (fdsrc == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		exit(98);
-	}
-	rd = read(fdsrc, BUF, sizeof(BUF));
-	cl = close(fdsrc);
-	if (cl == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdsrc);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, ERR_READ, src), exit(98);
+
+	fddst = open(dst, O_CREAT | O_WRONLY | O_TRUNC, RWRWR);
+	if (fddst == -1)
+		dprintf(STDERR_FILENO, ERR_WRITE, dst), exit(99);
+
+	while ((rd = read(fdsrc, BUF, BUFFER_size)) > 0)
+		if (write(fddst, BUF, rd) != rd)
+			dprintf(STDERR_FILENO, ERR_WRITE, dst), exit(99);
 
 	if (rd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		exit(98);
-	}
+		dprintf(STDERR_FILENO, ERR_READ, src), exit(98);
 
-	fddst = open(dst, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fddst == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", dst);
-		exit(99);
-	}
-	bytes_written = write(fddst, BUF, rd);
-	cl = close(fddst);
-	if (cl == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fddst);
-		exit(100);
-	}
 
-	if (bytes_written == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", dst);
-		exit(99);
-	}
+	if (close(fdsrc) == -1)
+		dprintf(STDERR_FILENO, ERR_CLOSE, fdsrc), exit(100);
+	if (close(fddst) == -1)
+		dprintf(STDERR_FILENO, ERR_CLOSE, fddst), exit(100);
+
+	return (0);
 }
