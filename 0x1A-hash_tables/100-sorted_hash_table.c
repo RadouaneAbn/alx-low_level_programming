@@ -92,7 +92,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	shash_node_t *current, *head;
 
-	if (!key || !ht || value == NULL)
+	if (!key || strlen(key) == 0 || !ht || value == NULL)
 		return (0);
 
 	index = key_index((unsigned char *)key, ht->size);
