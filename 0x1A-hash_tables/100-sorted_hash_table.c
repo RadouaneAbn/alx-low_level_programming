@@ -114,7 +114,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			free(current->value);
 			current->value = strdup(value);
 			return (1);
-			;		}
+		}
 		else
 		{
 			head = malloc(sizeof(shash_node_t));
