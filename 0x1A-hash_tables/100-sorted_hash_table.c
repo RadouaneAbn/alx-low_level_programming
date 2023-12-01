@@ -40,7 +40,7 @@ void sort_table(shash_table_t *ht, shash_node_t *node)
 {
 	shash_node_t *current = ht->shead;
 
-	while (current && (current->key[0] <= node->key[0]))
+	while (current && (current->key[0] < node->key[0]))
 		current = current->snext;
 
 
@@ -92,7 +92,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	shash_node_t *current, *head;
 
-	if (!key || !ht)
+	if (!key || !ht || value == NULL)
 		return (0);
 
 	index = key_index((unsigned char *)key, ht->size);
@@ -113,7 +113,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			free(current->value);
 			current->value = strdup(value);
-		}
+			return (1);
+			;		}
 		else
 		{
 			head = malloc(sizeof(shash_node_t));
@@ -218,23 +219,18 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 void shash_table_delete(shash_table_t *ht)
 {
-	unsigned long int i;
 	shash_node_t *node = ht->shead, *tmp;
 
 	if (!ht)
 		return;
 
-	for (i = 0; i < ht->size; i++)
+	while (node)
 	{
-		node = ht->array[i];
-		while (node)
-		{
-			tmp = node;
-			node = node->next;
-			free(tmp->key);
-			free(tmp->value);
-			free(tmp);
-		}
+		tmp = node->snext;
+		free(node->key);
+		free(node->value);
+		free(node);
+		node = tmp;
 	}
 	free(ht->array);
 	free(ht);
