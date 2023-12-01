@@ -40,7 +40,7 @@ void sort_table(shash_table_t *ht, shash_node_t *node)
 {
 	shash_node_t *current = ht->shead;
 
-	while (current && (current->key[0] < node->key[0]))
+	while (current && strcmp(current->key, node->key) < 0)
 		current = current->snext;
 
 
@@ -126,7 +126,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			ht->array[index] = head;
 		}
 	}
-	sort_table(ht, ht->array[index]);
+	sort_table(ht, head);
 	return (1);
 }
 
