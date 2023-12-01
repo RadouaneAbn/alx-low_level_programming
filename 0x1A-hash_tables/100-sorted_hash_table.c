@@ -44,7 +44,7 @@ void sort_table(shash_table_t *ht, shash_node_t *node)
 		current = current->snext;
 
 
-	if (ht->shead == NULL)
+	if (!ht->shead && !ht->stail)
 	{
 		node->snext = NULL;
 		node->sprev = NULL;
