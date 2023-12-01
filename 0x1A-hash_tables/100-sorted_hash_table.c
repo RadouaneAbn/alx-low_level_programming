@@ -126,7 +126,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			ht->array[index] = head;
 		}
 	}
-	sort_table(ht, head);
+	sort_table(ht, ht->array[index]);
 	return (1);
 }
 
