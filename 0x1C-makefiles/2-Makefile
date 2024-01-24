@@ -1,19 +1,11 @@
 CC = gcc
 SRC = main.c school.c
-OBG = main.o school.o
+OBG = $(SRC:.c=.o)
 NAME = school
+all: $(NAME)
 
-all: main.o school.o
-	$(CC) $(OBG) -o $(NAME)
+$(NAME): $(OBG)
+	$(CC) $^ -o $@
 
-main.o: main.c
-	$(CC) -c -o main.o main.c
-
-school.o: school.c
-	$(CC) -c -o school.o school.c
-
-main.c:
-	$(CC) -c -o main.o main.c
-
-school.c:
-	$(CC) -c -o school.o school.c
+%.o: %.c
+	$(CC) -c -o $@ $<
