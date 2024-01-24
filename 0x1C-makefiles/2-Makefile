@@ -4,7 +4,6 @@ OBG = $(SRC:.c=.o)
 NAME = school
 
 all: $(NAME)
-	$(CC) $(OBG) -o $(NAME)
 
 $(NAME): $(OBG)
 	$(CC) $^ -o $@
