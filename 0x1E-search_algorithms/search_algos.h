@@ -48,7 +48,6 @@ typedef struct skiplist_s
 int linear_search(int *array, size_t size, int value);
 
 /* Binary search */
-int bs_recursion(int *array, size_t left, size_t right, int value);
 int binary_search(int *array, size_t size, int value);
 
 /* Jump search */
@@ -62,6 +61,7 @@ int exponential_search(int *array, size_t size, int value);
 
 /* Advanced binary search */
 int advanced_binary(int *array, size_t size, int value);
+int as_rec(int *array, size_t left, size_t right, int value);
 
 /* Jump search in a singly linked list */
 listint_t *jump_list(listint_t *list, size_t size, int value);
