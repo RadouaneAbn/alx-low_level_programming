@@ -12,7 +12,7 @@
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	if (!array)
+	if (array == NULL)
 		return (NOT_FOUND);
 
 	return (recursion_binary_search(array, 0, size - 1, value));
@@ -40,7 +40,7 @@ int recursion_binary_search(int *array, size_t left, size_t right, int value)
 	if (array[left] == value)
 		return (left);
 
-	if (left >= right)
+	if (left == right)
 		return (NOT_FOUND);
 
 	mid = (left + right) / 2;
