@@ -40,7 +40,7 @@ int recursion_binary_search(int *array, size_t left, size_t right, int value)
 	if (array[left] == value)
 		return (left);
 
-	if (left == right)
+	if (left >= right)
 		return (NOT_FOUND);
 
 	mid = (left + right) / 2;
