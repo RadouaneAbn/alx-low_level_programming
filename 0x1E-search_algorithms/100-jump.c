@@ -42,7 +42,7 @@ int jump_search(int *array, size_t size, int value)
 		left++;
 	}
 
-	if (left < size)
+	if (left < size && value == array[left])
 		return (left);
 	return (NOT_FOUND);
 }
