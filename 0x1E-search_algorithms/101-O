@@ -1,1 +1,1 @@
-O(n/step+step-1)
+O(n/step)
