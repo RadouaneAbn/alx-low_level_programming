@@ -36,16 +36,14 @@ int recursion_binary_search(int *array, size_t left, size_t right, int value)
 {
 	size_t mid;
 
-	if (left == right)
-	{
-		if (array[left] == value)
-			return (left);
-		return (NOT_FOUND);
-	}
-
 	print_array(array, left, right);
-	mid = (left + right) / 2;
+	if (array[left] == value)
+		return (left);
 
+	if (left == right)
+		return (NOT_FOUND);
+
+	mid = (left + right) / 2;
 	if (value < array[mid])
 		return (recursion_binary_search(array, left, mid - 1, value));
 	else if (value > array[mid])
