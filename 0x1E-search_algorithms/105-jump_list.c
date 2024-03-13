@@ -26,7 +26,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (right->index != jump && right->next)
 		right = right->next;
 
-	while (right)
+	while (right && left->n != value)
 	{
 		printf("Value checked at index [%ld] = [%d]\n", right->index, right->n);
 		if (!right->next || value <= right->n)
